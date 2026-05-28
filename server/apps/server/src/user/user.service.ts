@@ -5,7 +5,7 @@ import { PrismaService } from '@libs/shared';
 import { ResponseService } from '@libs/shared';
 @Injectable()
 export class UserService {
-  constructor(private readonly prisma: PrismaService, private readonly response: ResponseService) {}
+  constructor(private readonly prisma: PrismaService, private readonly response: ResponseService) { }
   create(createUserDto: CreateUserDto) {
     return 'This action adds a new user';
   }
@@ -16,7 +16,7 @@ export class UserService {
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} user`;
+    return this.response.success(id);
   }
 
   update(id: number, updateUserDto: UpdateUserDto) {
